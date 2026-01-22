@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Cultivar Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Wine Cultivar Prediction</h2>
+        <p style="text-align: center; color: #666;">Enter chemical properties below:</p>
+        
+        <form action="/predict" method="post">
+            <label>Alcohol</label>
+            <input type="number" step="any" name="alcohol" placeholder="e.g. 13.2" required>
+            
+            <label>Magnesium</label>
+            <input type="number" step="any" name="magnesium" placeholder="e.g. 100.0" required>
+            
+            <label>Flavanoids</label>
+            <input type="number" step="any" name="flavanoids" placeholder="e.g. 2.5" required>
+            
+            <label>Color Intensity</label>
+            <input type="number" step="any" name="color_intensity" placeholder="e.g. 5.6" required>
+            
+            <label>Hue</label>
+            <input type="number" step="any" name="hue" placeholder="e.g. 1.0" required>
+            
+            <label>Proline</label>
+            <input type="number" step="any" name="proline" placeholder="e.g. 1000.0" required>
+            
+            <button type="submit">Predict Cultivar</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
